@@ -1,6 +1,7 @@
 import express from 'express'
 import client from 'prom-client'
 import { requestCount } from './requestCounter';
+import { gaugeCounter } from './Guage';
 const app = express();
 
 // app.use(calTime)
@@ -16,7 +17,8 @@ const app = express();
 //     console.log("It took ", ed-st, 'ms');
 // }
 
-app.use(requestCount)
+// app.use(requestCount)
+app.use(gaugeCounter)
 
 
 app.get('/user', (req,res)=>{
